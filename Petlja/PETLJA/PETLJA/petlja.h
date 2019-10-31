@@ -20,6 +20,7 @@ public:
 		int Duplikati(std::vector<int>);
 		int NeuparemiElement(std::vector<int>);
 		std::vector<int> CikCakSelekcija(std::vector<int>);
+		int BrojRazlicitihDuzinaDuzi(std::vector<double>);
 	};
 };
 

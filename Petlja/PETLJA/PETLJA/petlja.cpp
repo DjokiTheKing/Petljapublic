@@ -86,7 +86,7 @@ int petlja::NapredniNivo::Duplikati(std::vector<int> v)
 	return b;
 }
 
-int petlja::NapredniNivo::NeuparemiElement(std::vector<int>v)
+int petlja::NapredniNivo::NeupareniElement(std::vector<int>v)
 {
 	std::vector<int> s(*std::max_element(v.begin(), v.end()));
 	for (int i = 0; i < int(v.size()); i++)

@@ -18,7 +18,7 @@ public:
 		int Ruter(std::vector<int>);
 		int PopunjavanjePraznina(std::vector<int>);
 		int Duplikati(std::vector<int>);
-		int NeuparemiElement(std::vector<int>);
+		int NeupareniElement(std::vector<int>);
 		std::vector<int> CikCakSelekcija(std::vector<int>);
 	};
 };

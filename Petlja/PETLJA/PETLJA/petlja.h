@@ -21,6 +21,7 @@ public:
 		int NeupareniElement(std::vector<int>);
 		std::vector<int> CikCakSelekcija(std::vector<int>);
 		int BrojRazlicitihDuzinaDuzi(std::vector<double>);
+		int NajbrojnijiPresekIntervala(std::vector<int>);
 	};
 };
 

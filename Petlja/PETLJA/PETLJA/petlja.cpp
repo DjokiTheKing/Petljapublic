@@ -129,3 +129,13 @@ int petlja::NapredniNivo::BrojRazlicitihDuzinaDuzi(std::vector<double>v)
 	}
 	return b;
 }
+
+int petlja::NapredniNivo::NajbrojnijiPresekIntervala(std::vector<int>v)
+{
+	std::vector<int>s(*std::max_element(v.begin(),v.end()));
+	for (int i = 0; i < int(v.size()) / 2;i++) {
+		for (int j = v[i * 2]; j < v[i * 2 + 1]; j++)
+			s[j]++;
+	}
+	return *std::max_element(s.begin(),s.end());
+}

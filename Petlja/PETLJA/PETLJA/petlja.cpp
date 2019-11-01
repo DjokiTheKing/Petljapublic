@@ -168,17 +168,17 @@ float petlja::OsnovniNivo::Stolnjak(float P) const
 	return 0.0f;
 }
 
-float petlja::OsnovniNivo::RastojanjeTacaka(std::vector<float>) const
+float petlja::OsnovniNivo::RastojanjeTacaka(std::vector<float>v) const
 {
 	return 0.0f;
 }
 
-std::vector<float> petlja::OsnovniNivo::PravougaonikDatNaspramnimTemenima(std::vector<int>) const
+std::vector<float> petlja::OsnovniNivo::PravougaonikDatNaspramnimTemenima(std::vector<int>v) const
 {
 	return std::vector<float>();
 }
 
-double petlja::OsnovniNivo::PovrsinaTrouglaDatihTemena(std::vector<double>) const
+double petlja::OsnovniNivo::PovrsinaTrouglaDatihTemena(std::vector<double>v) const
 {
 	return 0.0;
 }

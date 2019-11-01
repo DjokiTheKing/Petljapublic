@@ -17,7 +17,7 @@ double petlja::factorial(int n) {
 	return sum;
 }
 
-std::vector<float> petlja::NapredniNivo::HarmonijskiPi(int n)
+std::vector<float> petlja::NapredniNivo::HarmonijskiPi(int n) const
 {
 	std::vector<float> v;
 	float sum = 0, eeeh = 1, eh = 2;
@@ -32,7 +32,7 @@ std::vector<float> petlja::NapredniNivo::HarmonijskiPi(int n)
 	return v;
 }
 
-double petlja::NapredniNivo::SumaReda(int n)
+double petlja::NapredniNivo::SumaReda(int n) const
 {
 	double sum = 1;
 	for (int i = 1; i <= n; i++)
@@ -40,7 +40,7 @@ double petlja::NapredniNivo::SumaReda(int n)
 	return sum;
 }
 
-int petlja::NapredniNivo::Ruter(std::vector<int> v)
+int petlja::NapredniNivo::Ruter(std::vector<int> v) const
 {
 	std::vector<int> s(v.size(),0);
 	for (int i = 0; i < int(v.size()); i++)
@@ -49,7 +49,7 @@ int petlja::NapredniNivo::Ruter(std::vector<int> v)
 	return *std::min_element(s.begin(), s.end());
 }
 
-int petlja::NapredniNivo::PopunjavanjePraznina(std::vector<int> v)
+int petlja::NapredniNivo::PopunjavanjePraznina(std::vector<int> v) const
 {
 	int maxn = 0,s = 0,maxpos = int(std::distance(v.begin(), std::max_element(v.begin(), v.end())));
 	for (int i = 0; i < maxpos + 1; i++) {
@@ -71,7 +71,7 @@ int petlja::NapredniNivo::PopunjavanjePraznina(std::vector<int> v)
 	return s;
 }
 
-int petlja::NapredniNivo::Duplikati(std::vector<int> v)
+int petlja::NapredniNivo::Duplikati(std::vector<int> v) const
 {
 	int b = 0, c = 0;
 	for (int i = 0; i < int(v.size()); i++) {
@@ -86,7 +86,7 @@ int petlja::NapredniNivo::Duplikati(std::vector<int> v)
 	return b;
 }
 
-int petlja::NapredniNivo::NeupareniElement(std::vector<int>v)
+int petlja::NapredniNivo::NeupareniElement(std::vector<int>v) const
 {
 	std::vector<int> s(*std::max_element(v.begin(), v.end()));
 	for (int i = 0; i < int(v.size()); i++)
@@ -94,7 +94,7 @@ int petlja::NapredniNivo::NeupareniElement(std::vector<int>v)
 	return int(std::distance(s.begin(),std::find(s.begin(),s.end(),1))+1);
 }
 
-std::vector<int> petlja::NapredniNivo::CikCakSelekcija(std::vector<int>v)
+std::vector<int> petlja::NapredniNivo::CikCakSelekcija(std::vector<int>v) const
 {
 	std::vector<int> s(v.size()); int q = 0, e = int(v.size() - 1);
 	std::sort(v.begin(), v.end());
@@ -111,7 +111,7 @@ std::vector<int> petlja::NapredniNivo::CikCakSelekcija(std::vector<int>v)
 	return s;
 }
 
-int petlja::NapredniNivo::BrojRazlicitihDuzinaDuzi(std::vector<double>v)
+int petlja::NapredniNivo::BrojRazlicitihDuzinaDuzi(std::vector<double>v) const
 {
 	std::vector<double> len;
 	for (int i = 0; i < (int(v.size() / 6)); i++) {
@@ -130,7 +130,7 @@ int petlja::NapredniNivo::BrojRazlicitihDuzinaDuzi(std::vector<double>v)
 	return b;
 }
 
-int petlja::NapredniNivo::NajbrojnijiPresekIntervala(std::vector<int>v)
+int petlja::NapredniNivo::NajbrojnijiPresekIntervala(std::vector<int>v) const
 {
 	std::vector<int>s(*std::max_element(v.begin(),v.end()));
 	for (int i = 0; i < int(v.size()) / 2;i++) {

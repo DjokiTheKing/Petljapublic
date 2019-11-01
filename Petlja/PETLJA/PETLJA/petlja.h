@@ -13,15 +13,15 @@ public:
 	~petlja();
 	class NapredniNivo {
 	public:
-		std::vector<float> HarmonijskiPi(int n);
-		double SumaReda(int n);
-		int Ruter(std::vector<int>);
-		int PopunjavanjePraznina(std::vector<int>);
-		int Duplikati(std::vector<int>);
-		int NeupareniElement(std::vector<int>);
-		std::vector<int> CikCakSelekcija(std::vector<int>);
-		int BrojRazlicitihDuzinaDuzi(std::vector<double>);
-		int NajbrojnijiPresekIntervala(std::vector<int>);
+		std::vector<float> HarmonijskiPi(int n) const;
+		double SumaReda(int n) const;
+		int Ruter(std::vector<int>) const;
+		int PopunjavanjePraznina(std::vector<int>) const;
+		int Duplikati(std::vector<int>) const;
+		int NeupareniElement(std::vector<int>) const;
+		std::vector<int> CikCakSelekcija(std::vector<int>) const;
+		int BrojRazlicitihDuzinaDuzi(std::vector<double>) const;
+		int NajbrojnijiPresekIntervala(std::vector<int>) const;
 	};
 };
 

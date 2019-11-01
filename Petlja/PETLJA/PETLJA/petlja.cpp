@@ -152,3 +152,78 @@ int petlja::NapredniNivo::ZbirMinimumaTrojki(const std::vector<int>v) const
 	}
 	return s%1000000;
 }
+
+int petlja::OsnovniNivo::Trening(int d, int s) const
+{
+	return 0;
+}
+
+int petlja::OsnovniNivo::ListPapira(int V, int S) const
+{
+	return 0;
+}
+
+float petlja::OsnovniNivo::Stolnjak(float P) const
+{
+	return 0.0f;
+}
+
+float petlja::OsnovniNivo::RastojanjeTacaka(std::vector<float>) const
+{
+	return 0.0f;
+}
+
+std::vector<float> petlja::OsnovniNivo::PravougaonikDatNaspramnimTemenima(std::vector<int>) const
+{
+	return std::vector<float>();
+}
+
+double petlja::OsnovniNivo::PovrsinaTrouglaDatihTemena(std::vector<double>) const
+{
+	return 0.0;
+}
+
+int petlja::OsnovniNivo::FudbalskiTeren(int d, int s, int r) const
+{
+	return 0;
+}
+
+float petlja::OsnovniNivo::NivoBazena(float n, float a, float b, float c) const
+{
+	return 0.0f;
+}
+
+std::vector<float> petlja::OsnovniNivo::TrogugaoOdredjenPravomIKoordinatnimPocetkom(float a, float b) const
+{
+	return std::vector<float>();
+}
+
+float petlja::OsnovniNivo::Putovanje(float v, float s) const
+{
+	return 0.0f;
+}
+
+std::vector<float> petlja::OsnovniNivo::Biciklista(float V0, float a) const
+{
+	return std::vector<float>();
+}
+
+float petlja::OsnovniNivo::SustizanjeAutomobila(float v1, float v2, float t) const
+{
+	return 0.0f;
+}
+
+float petlja::OsnovniNivo::RastojanjeKuca(float v1, float v2, float t, float d) const
+{
+	return 0.0f;
+}
+
+float petlja::OsnovniNivo::Kolona(float d, float V, float Vk) const
+{
+	return 0.0f;
+}
+
+float petlja::OsnovniNivo::BracaIPas(float d, float V1, float V2, float Vp) const
+{
+	return 0.0f;
+}

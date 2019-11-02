@@ -140,14 +140,19 @@ int petlja::NapredniNivo::NajbrojnijiPresekIntervala(const std::vector<int>v) co
 	return *std::max_element(s.begin(),s.end());
 }
 
-int petlja::NapredniNivo::ZbirMinimumaTrojki(const std::vector<int>v) const
+int petlja::NapredniNivo::ZbirMinimumaTrojki(std::vector<int>v) const
 {
-	int s = 0,n = int(v.size());
-	for (int i = 0; i < n - 2; i++) {
-		for (int j = i + 1; j < n - 1; j++) {
-			for (int k = j + 1; k < n; k++) {
-				s += v[i] < v[j] ? v[i] < v[k] ? v[i] : v[k] : v[j] < v[k] ? v[j] : v[k];
+	std::vector<int> t; int min,s = 0;
+	for (int i = 0; i < int(v.size()); i++) {
+		for (int j = i + 1; j < (int(v.size()) - 1); j++) {
+			t.clear();
+			min = v[i] < v[j] ? v[i] : v[j];
+			auto it = std::find_if(std::begin(v)+j+1, std::end(v), [min](int i) {return i < min; });
+			while (it != std::end(v)) {
+				t.push_back(*it);
+				it = std::find_if(std::next(it), std::end(v), [min](int i) {return i < min; });
 			}
+			s += min *int(v.size()-t.size()-j-1) + std::accumulate(t.begin(),t.end(),0);
 		}
 	}
 	return s%1000000;

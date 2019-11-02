@@ -3,6 +3,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include<numeric>
 
 class petlja
 {
@@ -40,7 +41,7 @@ public:
 		std::vector<int> CikCakSelekcija(std::vector<int>) const;
 		int BrojRazlicitihDuzinaDuzi(const std::vector<double>) const;
 		int NajbrojnijiPresekIntervala(const std::vector<int>) const;
-		int ZbirMinimumaTrojki(const std::vector<int>) const;
+		int ZbirMinimumaTrojki(std::vector<int>) const;
 	};
 };
 

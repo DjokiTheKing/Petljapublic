@@ -1,13 +1,5 @@
 #include "petlja.h"
 
-petlja::petlja()
-{
-}
-
-petlja::~petlja()
-{
-}
-
 double petlja::factorial(int n) {
 	double sum = 1;
 	while (n > 0) {
@@ -231,4 +223,186 @@ float petlja::OsnovniNivo::Kolona(float d, float V, float Vk) const
 float petlja::OsnovniNivo::BracaIPas(float d, float V1, float V2, float Vp) const
 {
 	return 0.0f;
+}
+
+int petlja::Takmicenja::Trotoar(int a[3])
+{
+	int min = a[0] * a[1] * a[2];
+	if ((a[0] * a[1] + a[2]) < min)
+		min = (a[0] * a[1] + a[2]);
+	if ((a[0] + a[1] + a[2]) < min)
+		min = (a[0] + a[1] + a[2]);
+	if ((a[0] + a[1] * a[2]) < min)
+		min = (a[0] + a[1] * a[2]);
+	return min;
+}
+
+int petlja::Takmicenja::PapirKamenMakaze(std::vector<unsigned int> v)
+{
+	std::vector<unsigned int> t;
+	for (auto i : v) t.push_back(i);
+	if (v[5] * 2 >= v[0])
+	{
+		v[5] -= int(v[0] / 2);
+		v[0] -= int(v[0] / 2) * 2;
+	}
+	else {
+		v[0] -= v[5] * 2;
+		v[5] = 0;
+	}
+	if (v[3] * 2 >= v[1])
+	{
+		v[3] -= int(v[1] / 2);
+		v[1] -= int(v[1] / 2) * 2;
+	}
+	else {
+		v[1] -= v[3] * 2;
+		v[3] = 0;
+	}
+	if (v[4] * 2 >= v[2])
+	{
+		v[4] -= int(v[2] / 2);
+		v[2] -= int(v[2] / 2) * 2;
+	}
+	else {
+		v[2] -= v[4] * 2;
+		v[4] = 0;
+	}
+
+	if (v[3] > 0 && v[0] > 0) {
+		if (v[3] >= v[0]) {
+			v[3] -= v[0];
+			v[0] = 0;
+		}
+		else if (v[3] < v[0]) {
+			v[0] -= v[3];
+			v[3] = 0;
+		}
+	}
+	if (v[4] > 0 && v[1] > 0) {
+		if (v[4] >= v[1]) {
+			v[4] -= v[1];
+			v[1] = 0;
+		}
+		else if (v[4] < v[1]) {
+			v[1] -= v[4];
+			v[1] = 0;
+		}
+	}
+	if (v[5] > 0 && v[2] > 0) {
+		if (v[5] >= v[2]) {
+			v[5] -= v[2];
+			v[2] = 0;
+		}
+		else if (v[5] < v[2]) {
+			v[2] -= v[5];
+			v[5] = 0;
+		}
+	}
+
+	if (v[0] > 0 && v[4] > 0) {
+		if (v[0] * 2 <= v[4]) {
+			v[4] -= v[0] * 2;
+			v[0] = 0;
+		}
+		else if (v[0] * 2 > v[4]) {
+			v[0] -= int(v[4] / 2);
+			v[4] = 0;
+		}
+	}
+	if (v[1] > 0 && v[5] > 0) {
+		if (v[1] * 2 <= v[5]) {
+			v[5] -= v[1] * 2;
+			v[1] = 0;
+		}
+		else if (v[1] * 2 > v[5]) {
+			v[1] -= int(v[5] / 2);
+			v[5] = 0;
+		}
+	}
+	if (v[2] > 0 && v[3] > 0) {
+		if (v[2] * 2 <= v[3]) {
+			v[2] -= v[3] * 2;
+			v[2] = 0;
+		}
+		else if (v[2] * 2 > v[3]) {
+			v[2] -= int(v[3] / 2);
+			v[3] = 0;
+		}
+	}
+
+	if (v[0] == 1 && v[5] > 0)
+		v[0] = 0;
+	if (v[1] == 1 && v[3] > 0)
+		v[1] = 0;
+	if (v[2] == 1 && v[4] > 0)
+		v[2] = 0;
+
+	return (std::accumulate(t.begin(), t.begin() + 3, 0) - std::accumulate(v.begin(), v.begin() + 3, 0));
+}
+
+long long petlja::Takmicenja::Krompir(std::vector<std::vector<int>> v, int n)
+{
+	long long s = 0;
+	int s1 = 0, s2 = 0;
+	std::vector<bool> v1(n * 2);
+	for (int i = 0; i < v.size(); i++) {
+		if (!v1[v[i][0] - 1]) {
+			v1[v[i][0] - 1] = 1;
+			s1++;
+			s += n - s2;
+		}
+		if (!v1[v[i][1] - 1 + n]) {
+			v1[v[i][1] - 1 + n] = 1;
+			s2++;
+			s += n - s1;
+		}
+	}
+	return s;
+}
+
+int petlja::Takmicenja::Raketa(int a[4])
+{
+	int c,e,pmx,ps,pn1,pn2;
+    pmx = int(std::distance(a,std::max_element(a,a+4)));
+    ps = 3-pmx;
+    switch(ps){
+		case 0:
+			pn1 = 1;pn2 = 2;
+			break;
+        case 3:
+			pn1 = 1;pn2 = 2;
+            break;
+        case 1:
+            pn1 = 0;pn2 = 3;
+            break;
+        case 2:
+            pn1 = 0;pn2 = 3;
+            break;
+		default:
+			pn1 = 0; pn2 = 0;
+    }
+    e = a[pmx]-a[ps];
+    a[ps]+=e;
+    c = a[pn1]>a[pn2] ? a[pn1]-a[pn2]:a[pn2]-a[pn1];
+    if(a[pn1]<a[pn2]){
+		if(e>c){
+			e-=c;
+            a[pn1]+=c;
+        }else{
+			a[pn1]+=e;
+            e=0;
+        }
+    }else{
+        if(e>c){
+            e-=c;
+            a[pn2]+=c;
+        }else{
+            a[pn2]+=e;
+            e=0;
+        }
+    }
+    a[pn2] += int(e/2);
+    a[pn1] += e - int(e/2);
+    return *std::max_element(a,a+4)-*std::min_element(a,a+4);
 }

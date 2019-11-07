@@ -3,15 +3,11 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
-#include<numeric>
+#include <numeric>
 
-class petlja
+namespace petlja
 {
-	static double factorial(int);
-
-public:
-	petlja();
-	~petlja();
+	double factorial(int);
 	class OsnovniNivo {
 	public:
 		int Trening(int d, int s) const;
@@ -42,6 +38,13 @@ public:
 		int BrojRazlicitihDuzinaDuzi(const std::vector<double>) const;
 		int NajbrojnijiPresekIntervala(const std::vector<int>) const;
 		int ZbirMinimumaTrojki(std::vector<int>) const;
+	};
+	class Takmicenja {
+		//2k17
+		int Trotoar(int a[3]);
+		int PapirKamenMakaze(std::vector<unsigned int>v);
+		long long Krompir(std::vector<std::vector<int> >v, int n);
+		int Raketa(int a[4]);
 	};
 };
 

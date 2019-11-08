@@ -406,3 +406,19 @@ int petlja::Takmicenja::Raketa(int a[4])
     a[pn1] += e - int(e/2);
     return *std::max_element(a,a+4)-*std::min_element(a,a+4);
 }
+
+int petlja::Takmicenja::PrvaCifra(int A, int B)
+{
+	int S;
+	int n1 = int(A / pow(10, (int(log10(A))))), n2 = int(B / pow(10, (int(log10(B)))));
+	if (n1 > n2) {
+		S = A;
+	}
+	else if (n1 < n2) {
+		S = B;
+	}
+	else {
+		S = std::max(A, B);
+	}
+	return S;
+}

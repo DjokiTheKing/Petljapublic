@@ -40,11 +40,13 @@ namespace petlja
 		int ZbirMinimumaTrojki(std::vector<int>) const;
 	};
 	class Takmicenja {
+	public:
 		//2k17
 		int Trotoar(int a[3]);
 		int PapirKamenMakaze(std::vector<unsigned int>v);
 		long long Krompir(std::vector<std::vector<int> >v, int n);
 		int Raketa(int a[4]);
+		//2k18
+		int PrvaCifra(int A, int B);
 	};
 };
-

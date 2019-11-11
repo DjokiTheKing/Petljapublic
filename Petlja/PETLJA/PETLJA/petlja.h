@@ -8,6 +8,7 @@
 namespace petlja
 {
 	double factorial(int);
+	std::vector<std::vector<int> > rotatee(std::vector<std::vector<int> >,bool,int);
 	class OsnovniNivo {
 	public:
 		int Trening(int d, int s) const;
@@ -43,10 +44,11 @@ namespace petlja
 	public:
 		//2k17
 		int Trotoar(int a[3]);
-		int PapirKamenMakaze(std::vector<unsigned int>v);
-		long long Krompir(std::vector<std::vector<int> >v, int n);
-		int Raketa(int a[4]);
+		int PapirKamenMakaze(std::vector<unsigned int>);
+		long long Krompir(std::vector<std::vector<int> >,int);
+		int Raketa(int[4]);
 		//2k18
-		int PrvaCifra(int A, int B);
+		int PrvaCifra(int, int);
+		int TransformacijaMatrice(std::vector<std::vector<int> >, std::vector<std::vector<int> >);
 	};
 };

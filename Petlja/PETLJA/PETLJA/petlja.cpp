@@ -9,6 +9,32 @@ double petlja::factorial(int n) {
 	return sum;
 }
 
+std::vector<std::vector<int>> petlja::rotatee(std::vector<std::vector<int>> v,bool dir,int times)
+{
+	std::vector<std::vector<int> > t; std::vector<int>t1;
+	for (int i = 0; i < times; ++i) {
+		t.clear();
+		if (dir)
+			for (int i = 0; i < int(v.size()); ++i) {
+				t1.clear();
+				for (int j = int(v.size()) - 1; j >= 0; --j) {
+					t1.push_back(v[j][i]);
+				}
+				t.push_back(t1);
+			}
+		else
+			for (int i = int(v.size()) - 1; i >= 0; --i) {
+				t1.clear();
+				for (int j = 0; j < int(v.size()); ++j) {
+					t1.push_back(v[j][i]);
+				}
+				t.push_back(t1);
+			}
+		v = t;
+	}
+	return v;
+}
+
 std::vector<float> petlja::NapredniNivo::HarmonijskiPi(const int n) const
 {
 	std::vector<float> v;
@@ -421,4 +447,22 @@ int petlja::Takmicenja::PrvaCifra(int A, int B)
 		S = std::max(A, B);
 	}
 	return S;
+}
+
+int petlja::Takmicenja::TransformacijaMatrice(std::vector<std::vector<int>>v1, std::vector<std::vector<int>>v2)
+{
+	int n = int(v1.size()), a[4] = { 0 }, s;std::vector<std::vector<std::vector<int> > > g;
+	g.push_back(v1);
+	g.push_back(rotatee(v1,1,1));
+	g.push_back(rotatee(v1,1,2));
+	g.push_back(rotatee(v1,1,3));
+	for (int k = 0; k < 4; ++k)
+		for (int i = 0; i < n; ++i) {
+			for (int j = 0; j < n; ++j) {
+				if (g[k][i][j] != v2[i][j])
+					a[k]++;
+			}
+		}
+	s = *std::min_element(a, a + 4) + int(std::distance(a, std::min_element(a, a + 4)));
+	return s;
 }

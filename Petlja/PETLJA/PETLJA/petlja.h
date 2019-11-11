@@ -43,12 +43,13 @@ namespace petlja
 	class Takmicenja {
 	public:
 		//2k17
-		int Trotoar(int a[3]);
+		int Trotoar(int[3]);
 		int PapirKamenMakaze(std::vector<unsigned int>);
 		long long Krompir(std::vector<std::vector<int> >,int);
 		int Raketa(int[4]);
 		//2k18
 		int PrvaCifra(int, int);
 		int TransformacijaMatrice(std::vector<std::vector<int> >, std::vector<std::vector<int> >);
+		std::vector<std::vector<int> > MalaMatrica(std::vector<std::vector<int> >);
 	};
 };

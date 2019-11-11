@@ -466,3 +466,106 @@ int petlja::Takmicenja::TransformacijaMatrice(std::vector<std::vector<int>>v1, s
 	s = *std::min_element(a, a + 4) + int(std::distance(a, std::min_element(a, a + 4)));
 	return s;
 }
+
+std::vector<std::vector<int>> petlja::Takmicenja::MalaMatrica(std::vector<std::vector<int>> v)
+{
+	if (v[0][1] == 0)
+		v[0][1] = 1;
+	if (v[1][1] == 0)
+		v[1][1] = 1;
+	int s1 = v[0][0] + v[1][0],s2 = v[0][2] + v[1][2],s;
+	int s11 = 0, s12 = 0;
+	if (v[0][0] == 0)
+		s11++;
+	if (v[1][0] == 0)
+		s11++;
+	if (v[0][2] == 0)
+		s12++;
+	if (v[1][2] == 0)
+		s12++;
+	if((s11+s12) == 4)
+	{
+		v[0][0] = 1;
+		v[1][0] = 1;
+		v[0][2] = 1;
+		v[1][2] = 1;
+	}else if (s11 == 1 && s12 == 2) {
+		if (v[0][0] == 0)
+			v[0][0] = 1;
+		else
+			v[1][0] = 1;
+		v[0][2] = s1;
+		v[1][2] = 1;
+	}else if (s12 == 1 && s11 == 2) {
+		if (v[0][2] == 0)
+			v[0][2] = 1;
+		else
+			v[1][2] = 1;
+		v[0][0] = s2;
+		v[1][0] = 1;
+	}
+	else if (s12 == 1 && s11 == 1) {
+		if (s1 > s2) {
+			s = s1 - s2;
+			if (s < 0)
+				s = 0;
+			if (v[0][0] == 0)
+				v[0][0] = 1;
+			else
+				v[1][0] = 1;
+			if (v[0][2] == 0)
+				v[0][2] = s +1;
+			else
+				v[1][2] = s +1;
+		}
+		else if (s1 < s2) {
+			s = s2 - s1;
+			if (s < 0)
+				s = 0;
+			if (v[0][2] == 0)
+				v[0][2] = 1;
+			else
+				v[1][2] = 1;
+			if (v[0][0] == 0)
+				v[0][0] = s + 1;
+			else
+				v[1][0] = s + 1;
+		}
+		else {
+			if (v[0][2] == 0)
+				v[0][2] = 1;
+			else
+				v[1][2] = 1;
+			if (v[0][0] == 0)
+				v[0][0] = 1;
+			else
+				v[1][0] = 1;
+		}
+	}
+	else if (s11 == 0 && s12 == 2) {
+		v[0][2] = s1 - 1;
+		v[1][2] = 1;
+	}
+	else if (s11 == 2 && s12 == 0) {
+		v[0][0] = s2 - 1;
+		v[1][0] = 1;
+	}
+	else if (s12 == 0 && s11 == 1) {
+		if (v[0][0] == 0)
+			v[0][0] = s2 - s1;
+		else 
+			v[1][0] = s2 - s1;
+	}
+	else if (s11 == 0 && s12 == 1) {
+		if (v[0][2] == 0)
+			v[0][2] = s1 - s2;
+		else
+			v[1][2] = s1 - s2;
+	}
+	if ((v[0][0] + v[1][0]) != (v[0][2] + v[1][2]))
+		v.clear();
+	for (auto i : v)
+		if (std::find_if(i.begin(), i.end(), [](int n) {return n < 0; }) != i.end())
+			v.clear();
+	return v;
+}

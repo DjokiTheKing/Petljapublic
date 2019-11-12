@@ -51,5 +51,6 @@ namespace petlja
 		int PrvaCifra(int, int);
 		int TransformacijaMatrice(std::vector<std::vector<int> >, std::vector<std::vector<int> >);
 		std::vector<std::vector<int> > MalaMatrica(std::vector<std::vector<int> >);
+		int Zecevi(std::vector<int>);
 	};
 };

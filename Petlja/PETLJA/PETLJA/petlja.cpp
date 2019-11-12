@@ -569,3 +569,18 @@ std::vector<std::vector<int>> petlja::Takmicenja::MalaMatrica(std::vector<std::v
 			v.clear();
 	return v;
 }
+
+int petlja::Takmicenja::Zecevi(std::vector<int>v)
+{
+	std::sort(v.begin(), v.end());
+	int a = v[1] - v[0];
+	int b = v[2] - v[1];
+	if (a == b && (a != 0 || b != 0))
+		return v[2] + b;
+	else if (a == 2 * b)
+		return v[1] - b;
+	else if (b == 2 * a)
+		return v[1] + a;
+	else
+		return -1;
+}
